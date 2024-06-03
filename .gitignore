@@ -2,3 +2,6 @@
 .shuttle-storage
 Secrets*.toml
 .prettierrc.toml
+Cargo.lock
+bun.lockb
+node_modules

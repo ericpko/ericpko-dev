@@ -1,9 +1,9 @@
-# Axum + htmx
+# Personal dev site
 
-This is an example of how you can use Shuttle with Axum, Askama and htmx to create a frontend that's easily extendable and requires zero framework knowledge, while being able to easily inject variables from the backend into the frontend.
+[https://ericpko.dev](https://ericpko.dev)
 
-The app is a TODO list with a main page and an event stream page.
+My personal developer website. Built using Rust, htmx, shuttle, and tailwindcss.
 
 ## Usage
 
-Run the app and go to <http://localhost:8000> to add and remove TODOs from the list.
+Run the app and go to <http://localhost:8000>
