@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="/assets/main.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/assets/blog.css" />
+
+        <!-- Favicon -->
+        <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+        <!-- Allow any inheriting page to set it's own title -->
+        <title>{% block title %}{{ title }}{% endblock %}</title>
+
+        <!-- Allow any inheriting page to extend head with additional assets -->
+        {% block head %}{% endblock %}
+
+        <!-- Add htmx -->
+        <script
+            src="https://unpkg.com/htmx.org@1.9.6"
+            integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body class="container flex max-w-[768px] flex-col space-y-10">
+        <header class="p-4 font-mono">{% include "navbar.html" %}</header>
+        <main class="grow space-y-10 p-4">
+            <!-- Inheriting pages will have their content rendered here, similar to app root in React, Angular, etc. -->
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="p-4">{% include "footer.html" %}</footer>
+    </body>
+</html>

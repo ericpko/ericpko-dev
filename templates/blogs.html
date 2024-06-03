@@ -1,0 +1,21 @@
+<!-- prettier-ignore -->
+{% extends "layout.html" %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block content %}
+
+<section class="mx-auto flex max-w-2xl flex-col gap-5">
+    <h1 class="text-center font-mono">
+        &lt;page&gt <strong class="text-3xl">Blogs</strong> &lt;/page&gt
+    </h1>
+    <ul class="list-disc pl-5">
+        {% for post in posts %}
+        <li>
+            <a href="{{ post.0 }}" class="text-blue-300">{{ post.1 }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}
