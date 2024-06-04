@@ -7,7 +7,8 @@ pub struct IndexTemplate;
 #[derive(Template)]
 #[template(path = "blogs.html")]
 pub struct BlogsTemplate {
-    pub posts: Vec<(String, String)>, // (url, title) tuples
+    // (url, date, subject, title, description) tuples
+    pub posts: Vec<(String, String, String, String, String)>,
 }
 
 #[derive(Template)]

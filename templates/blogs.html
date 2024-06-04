@@ -11,16 +11,21 @@
     </h1>
     <p>
         I'm passionate about personal finance and investing, as well as Rust
-        programming and web development. Occasionally, I write about these
+        programming and web development. Occasionally, I'll write about these
         subjects to further solidify my understanding and share my insights.
     </p>
-    <ul class="list-disc pl-5">
+    <div
+        class="mx-auto grid max-w-4xl grid-cols-1 gap-x-2 gap-y-12 sm:grid-cols-3"
+    >
         {% for post in posts %}
-        <li>
-            <a href="{{ post.0 }}" class="text-blue-300">{{ post.1 }}</a>
-        </li>
+        <a href="{{ post.0 }}" class="blog-item">
+            <div class="date">{{ post.1 }}</div>
+            <div class="subject">{{ post.2 }}</div>
+            <div class="title">{{ post.3 }}</div>
+            <div class="description">{{ post.4 }}</div>
+        </a>
         {% endfor %}
-    </ul>
+    </div>
 </section>
 
 {% endblock %}

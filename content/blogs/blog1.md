@@ -1,3 +1,10 @@
+<!---
+Apr 9, 2024
+Subject 1
+Title of Blog Post 1
+This is an example description for blog post 1.
+-->
+
 # Markdown: Syntax
 
 *   [Overview](#overview)
