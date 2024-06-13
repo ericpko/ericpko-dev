@@ -3,11 +3,14 @@ use std::{
     io::{self, BufRead},
 };
 
-use axum::{extract::Path, response::IntoResponse};
+use axum::{
+    extract::{Path, State},
+    response::IntoResponse,
+};
 use chrono::NaiveDate;
 use pulldown_cmark::{html, Parser};
 
-use crate::templates;
+use crate::{templates, AppState};
 
 pub async fn home() -> impl IntoResponse {
     templates::IndexTemplate
@@ -17,8 +20,8 @@ pub async fn projects() -> impl IntoResponse {
     templates::ProjectsTemplate
 }
 
-pub async fn blogs() -> impl IntoResponse {
-    let blogs = list_blogs();
+pub async fn blogs(State(state): State<AppState>) -> impl IntoResponse {
+    let blogs = state.blog_posts.read().await.clone();
     templates::BlogsTemplate { posts: blogs }
 }
 
@@ -30,7 +33,7 @@ pub async fn blog(Path(blog_id): Path<String>) -> impl IntoResponse {
     }
 }
 
-fn list_blogs() -> Vec<(String, String, String, String, String)> {
+pub fn list_blogs() -> Vec<(String, String, String, String, String)> {
     let mut posts = Vec::new();
     let blogs_path = "content/blogs";
     let paths = std::fs::read_dir(blogs_path).expect("Failed to read blogs directory");

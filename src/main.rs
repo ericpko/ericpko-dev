@@ -16,7 +16,13 @@ struct AppState {
 
 #[shuttle_runtime::main]
 async fn main() -> shuttle_axum::ShuttleAxum {
-    let router = router::init_router();
+    let blog_posts = routes::list_blogs(); // Read blog posts
+
+    let state = AppState {
+        blog_posts: Arc::new(RwLock::new(blog_posts)),
+    };
+
+    let router = router::init_router(state.clone());
 
     Ok(router.into())
 }
