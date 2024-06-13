@@ -30,50 +30,6 @@ pub async fn blog(Path(blog_id): Path<String>) -> impl IntoResponse {
     }
 }
 
-// fn list_blogs() -> Vec<(String, String, String, String)> {
-//     let mut posts = Vec::new();
-//     let blogs_path = "content/blogs";
-//     let paths = std::fs::read_dir(blogs_path).expect("Failed to read blogs directory");
-
-//     for path in paths {
-//         let path = path.unwrap().path();
-//         let filename = path.file_stem().unwrap().to_str().unwrap().to_string();
-
-//         let file = File::open(&path).expect("Failed to open file");
-//         let reader = io::BufReader::new(file);
-//         let mut lines = reader.lines();
-
-//         // Skip the first line (the opening HTML comment)
-//         lines.next();
-
-//         // Read the second line (date)
-//         let date_str = lines.next().unwrap().unwrap().trim().to_string();
-
-//         // Read the third line (title)
-//         let title = lines.next().unwrap().unwrap().trim().to_string();
-
-//         // Convert the date string to a NaiveDate
-//         let date = NaiveDate::parse_from_str(&date_str, "%b %d, %Y").expect("Failed to parse date");
-
-//         // Generate a short description (first few lines from the content after the header)
-//         // Keep it simple for now
-//         let description = "Short description goes here..."; // Placeholder for now
-
-//         // Push formatted post directly
-//         posts.push((
-//             format!("/blogs/{}", filename),
-//             date.format("%b %d, %Y").to_string(),
-//             title,
-//             description.to_string(),
-//         ));
-//     }
-
-//     // Sort blogs by date (most recent first)
-//     posts.sort_by(|a, b| b.1.cmp(&a.1));
-
-//     posts
-// }
-
 fn list_blogs() -> Vec<(String, String, String, String, String)> {
     let mut posts = Vec::new();
     let blogs_path = "content/blogs";
