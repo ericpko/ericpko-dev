@@ -1,7 +1,6 @@
 mod api;
 mod errors;
 mod handlers;
-mod models;
 mod router;
 mod routes;
 mod state;
