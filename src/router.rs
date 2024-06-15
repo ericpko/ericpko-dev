@@ -2,9 +2,9 @@ use axum::{routing::get, Router};
 use tower_http::services::ServeDir;
 use tower_livereload::LiveReloadLayer;
 
-use crate::{api, routes, AppState};
+use crate::{api, routes, state};
 
-pub fn init_router(state: AppState) -> Router {
+pub fn init_router(state: state::AppState) -> Router {
     let router = Router::new()
         .route("/", get(routes::home))
         .route("/blogs", get(routes::blogs))
