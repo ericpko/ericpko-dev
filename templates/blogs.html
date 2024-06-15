@@ -14,18 +14,22 @@
         programming and web development. Occasionally, I'll write about these
         subjects to further solidify my understanding and share my insights.
     </p>
-    <div
-        class="mx-auto grid max-w-4xl grid-cols-1 gap-x-2 gap-y-12 sm:grid-cols-3"
-    >
-        {% for post in posts %}
-        <a href="{{ post.0 }}" class="blog-item">
-            <div class="date">{{ post.1 }}</div>
-            <div class="subject">{{ post.2 }}</div>
-            <div class="title">{{ post.3 }}</div>
-            <div class="description">{{ post.4 }}</div>
-        </a>
-        {% endfor %}
-    </div>
 </section>
+<div
+    class="mx-auto grid max-w-4xl grid-cols-1 gap-x-9 gap-y-12 sm:grid-cols-3"
+>
+    {% for post in posts %}
+    <a href="{{ post.0 }}" class="flex flex-col gap-3 transform transition-transform duration-300 hover:scale-105"">
+        <div class="flex justify-between items-center text-sm font-mono">
+            <div class="">{{ post.1 }}</div>
+            <div class="bg-gray-50 text-black rounded-full px-1">
+                {{ post.2 }}
+            </div>
+        </div>
+        <div class="text-1xl font-bold text-white">{{ post.3 }}</div>
+        <div class="text-sm font-mono">{{ post.4 }}</div>
+    </a>
+    {% endfor %}
+</div>
 
 {% endblock %}

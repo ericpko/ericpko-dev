@@ -84,14 +84,35 @@ pub fn list_blogs() -> Vec<(String, String, String, String, String)> {
     }
 
     // Sort blogs by date (most recent first)
-    posts.sort_by(|a, b| b.1.cmp(&a.1));
+    posts.sort_by(|a, b| {
+        let date_a = NaiveDate::parse_from_str(&a.1, "%b %d, %Y").unwrap();
+        let date_b = NaiveDate::parse_from_str(&b.1, "%b %d, %Y").unwrap();
+        date_b.cmp(&date_a)
+    });
 
     posts
 }
 
 fn get_blog(blog_id: String) -> (String, String) {
     let file_path = format!("content/blogs/{}.md", blog_id);
-    let markdown_content = fs::read_to_string(file_path).expect("Failed to read file");
+    let markdown_content = fs::read_to_string(&file_path).expect("Failed to read file");
+
+    // Extract the title from the comment
+    let file = File::open(&file_path).expect("Failed to open file");
+    let reader = io::BufReader::new(file);
+    let mut lines = reader.lines();
+
+    // Skip the first line (the opening HTML comment)
+    lines.next();
+
+    // Read the second line (date)
+    lines.next();
+
+    // Read the third line (subject)
+    lines.next();
+
+    // Read the fourth line (title)
+    let title = lines.next().unwrap().unwrap().trim().to_string();
 
     // Configure the markdown parser
     let parser = Parser::new_ext(&markdown_content, pulldown_cmark::Options::all());
@@ -99,5 +120,5 @@ fn get_blog(blog_id: String) -> (String, String) {
     let mut html_content = String::new();
     html::push_html(&mut html_content, parser);
 
-    (blog_id, html_content)
+    (title, html_content)
 }
