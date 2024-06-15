@@ -5,5 +5,5 @@ pub fn init_api_router() -> Router {
 }
 
 async fn hello_from_the_server() -> &'static str {
-    "Hello from the server!"
+    "Hello from the server! This was an example of htmx."
 }

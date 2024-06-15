@@ -30,14 +30,19 @@
         maintaining a healthy lifestyle.
     </p>
 
-    <button
-        type="button"
-        hx-get="/api/hello"
-        hx-swap="innerHtml"
-        class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-    >
-        Say hello from the Rust web server
-    </button>
+    <div class="flex justify-center">
+        <button
+            type="button"
+            hx-get="/api/hello"
+            hx-swap="innerHtml"
+            class="rounded-md bg-gray-50 px-2.5 py-1.5 text-sm text-gray-800 shadow-sm hover:bg-gray-300"
+        >
+            Say hello from the Rust server! I'm using htm<span
+                class="text-blue-600"
+                >x</span
+            >
+        </button>
+    </div>
 </section>
 <section class="flex flex-row gap-3">
     <!-- <a
