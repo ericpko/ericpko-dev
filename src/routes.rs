@@ -19,9 +19,9 @@ pub async fn blogs(State(state): State<state::AppState>) -> impl IntoResponse {
 }
 
 pub async fn blog(Path(blog_id): Path<String>) -> impl IntoResponse {
-    let (blog_id, html_content) = handlers::blog::get_blog(blog_id);
+    let (title, html_content) = handlers::blog::get_blog(blog_id);
     templates::BlogTemplate {
-        title: blog_id,
+        title,
         content: html_content,
     }
 }

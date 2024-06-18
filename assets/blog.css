@@ -1,6 +1,6 @@
 #blog-content {
     line-height: 1.6;
-    color: #f0f0f0;
+    /* color: #f0f0f0; */
     /* Light text for dark mode */
     /* background-color: #1e1e1e; */
     /* Dark background for dark mode */
@@ -15,8 +15,7 @@
 #blog-content h5,
 #blog-content h6 {
     margin-top: 0.5em;
-    color: #ffdd57;
-    /* Example: Yellow headers */
+    color: #f0f0f0;
 }
 
 #blog-content ul,
@@ -27,8 +26,7 @@
 
 #blog-content ul li::marker,
 #blog-content ol li::marker {
-    color: #ffdd57;
-    /* Yellow markers for lists */
+    color: #f0f0f0;
 }
 
 #blog-content ul {
@@ -58,4 +56,9 @@
     border-radius: 4px;
     color: #ffa07a;
     /* Light salmon for inline code */
+}
+
+#blog-content a {
+    color: #ffa07a;
+    /* Light salmon for links */
 }
