@@ -83,4 +83,4 @@ We manage the NPs and the PDS as two separate trades.
 
 ## Strangles on Futures
 
-blah
+!TODO

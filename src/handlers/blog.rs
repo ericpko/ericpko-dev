@@ -4,7 +4,7 @@ use std::{
 };
 
 use chrono::NaiveDate;
-use pulldown_cmark::{html, Parser};
+use comrak::{markdown_to_html, Options};
 
 pub fn list_blogs() -> Vec<(String, String, String, String, String)> {
     let mut posts = Vec::new();
@@ -87,11 +87,18 @@ pub fn get_blog(blog_id: String) -> (String, String) {
     // Read the fourth line (title)
     let title = lines.next().unwrap().unwrap().trim().to_string();
 
-    // Configure the markdown parser
-    let parser = Parser::new_ext(&markdown_content, pulldown_cmark::Options::all());
+    // Convert markdown to html
+    let mut options = Options::default();
+    options.extension.strikethrough = true;
+    options.extension.table = true;
+    options.extension.autolink = true;
+    options.extension.tasklist = true;
+    options.extension.superscript = true;
+    options.extension.description_lists = true;
+    options.extension.multiline_block_quotes = true;
+    options.extension.math_dollars = true;
+    options.extension.math_code = true;
+    let html = markdown_to_html(&markdown_content, &options);
 
-    let mut html_content = String::new();
-    html::push_html(&mut html_content, parser);
-
-    (title, html_content)
+    (title, html)
 }
