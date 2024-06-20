@@ -4,8 +4,8 @@
     /* Light text for dark mode */
     /* background-color: #1e1e1e; */
     /* Dark background for dark mode */
-    padding: 1em;
-    border-radius: 8px;
+    /* padding: 1em; */
+    /* border-radius: 8px; */
 }
 
 #blog-content h1,
@@ -20,13 +20,13 @@
 
 #blog-content ul,
 #blog-content ol {
-    margin: 1em 0;
     padding-left: 1.5em;
 }
 
 #blog-content ul li::marker,
 #blog-content ol li::marker {
-    color: #f0f0f0;
+    /* color: #f0f0f0; */
+    color: #93c5fd;
 }
 
 #blog-content ul {
@@ -54,11 +54,10 @@
     background-color: #2d2d2d;
     padding: 2px 4px;
     border-radius: 4px;
-    color: #ffa07a;
-    /* Light salmon for inline code */
+    color: #93c5fd;
 }
 
 #blog-content a {
-    color: #ffa07a;
-    /* Light salmon for links */
+    /* color: #ffa07a; */
+    color: #93c5fd;
 }

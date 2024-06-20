@@ -1,7 +1,7 @@
 <!---
 Jun 18, 2024
 Rust/htmx
-Rust, htmx, and Tailwindcss
+Rust, htmx, and tailwindcss
 Rust, htmx, and tailwindcss. Keep it simple, stupid.
 -->
 
