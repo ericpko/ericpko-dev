@@ -39,7 +39,7 @@ pub fn list_blogs() -> Vec<(String, String, String, String, String)> {
                 break;
             }
             description.push_str(&line);
-            description.push_str("\n");
+            description.push('\n');
         }
         let description = description.trim().to_string();
 
