@@ -1,0 +1,4 @@
+.shuttle-storage
+fly.toml
+.git/
+node_modules
