@@ -1,10 +1,12 @@
 use std::sync::Arc;
 use tokio::sync::RwLock;
 
+type BlogPostsType = Arc<RwLock<Vec<(String, String, String, String, String)>>>;
+
 #[derive(Clone)]
 pub struct AppState {
     // Using RwLock to allow concurrent read access
-    pub blog_posts: Arc<RwLock<Vec<(String, String, String, String, String)>>>,
+    pub blog_posts: BlogPostsType,
 }
 
 impl AppState {
